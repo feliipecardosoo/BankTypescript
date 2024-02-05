@@ -1,4 +1,4 @@
-let saldo = 10;
+let saldo = 1;
 
 const elementoSaldo = document.querySelector('.saldo-valor .valor') as HTMLElement;
 
