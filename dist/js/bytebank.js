@@ -1,4 +1,4 @@
-let saldo = 0;
+let saldo = 10;
 const elementoSaldo = document.querySelector('.saldo-valor .valor');
 if (elementoSaldo != null) {
     elementoSaldo.textContent = saldo.toString();
