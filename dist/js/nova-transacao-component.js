@@ -27,5 +27,6 @@ elementoFormulario.addEventListener('submit', function (e) {
         valor: valor,
         data: data
     };
+    console.log(novaTransacao);
     elementoFormulario.reset();
 });

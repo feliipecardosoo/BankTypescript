@@ -26,11 +26,13 @@ if(tipoTransacao == 'Depósito') {
 
 elementoSaldo.textContent = saldo.toString()
 
-const novaTransacao = {
+const novaTransacao: Transacao = {
     tipoTransacao: tipoTransacao,
     valor: valor,
     data: data
 }
+
+console.log(novaTransacao)
 
 elementoFormulario.reset();
 })
