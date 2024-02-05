@@ -1,11 +1,3 @@
-let saldo = 10;
-
-const elementoSaldo = document.querySelector('.saldo-valor .valor') as HTMLElement;
-
-if(elementoSaldo != null) {
-    elementoSaldo.textContent = saldo.toString()
-}
-
 const elementoFormulario = document.querySelector('.block-nova-transacao form') as HTMLFormElement
 
 elementoFormulario.addEventListener('submit', function(e) {
@@ -22,10 +14,6 @@ const inputData = elementoFormulario.querySelector('#data') as HTMLInputElement
 let tipoTransacao: string = inputTipoTransacao.value 
 let valor: number = inputValor.valueAsNumber
 let data: Date = new Date(inputData.value) 
-
-console.log(tipoTransacao)
-console.log(valor)
-console.log(data)
 
 if(tipoTransacao == 'Depósito') {
     saldo += valor
@@ -44,6 +32,5 @@ const novaTransacao = {
     data: data
 }
 
-console.log(novaTransacao)
 elementoFormulario.reset();
 })
