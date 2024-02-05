@@ -1,8 +1,3 @@
-let saldo = 1;
-const elementoSaldo = document.querySelector('.saldo-valor .valor');
-if (elementoSaldo != null) {
-    elementoSaldo.textContent = saldo.toString();
-}
 const elementoFormulario = document.querySelector('.block-nova-transacao form');
 elementoFormulario.addEventListener('submit', function (e) {
     e.preventDefault();
@@ -16,9 +11,6 @@ elementoFormulario.addEventListener('submit', function (e) {
     let tipoTransacao = inputTipoTransacao.value;
     let valor = inputValor.valueAsNumber;
     let data = new Date(inputData.value);
-    console.log(tipoTransacao);
-    console.log(valor);
-    console.log(data);
     if (tipoTransacao == 'Depósito') {
         saldo += valor;
     }
@@ -35,6 +27,5 @@ elementoFormulario.addEventListener('submit', function (e) {
         valor: valor,
         data: data
     };
-    console.log(novaTransacao);
     elementoFormulario.reset();
 });
