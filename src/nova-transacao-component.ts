@@ -11,13 +11,13 @@ const inputTipoTransacao = elementoFormulario.querySelector('#tipoTransacao') as
 const inputValor = elementoFormulario.querySelector('#valor') as HTMLInputElement
 const inputData = elementoFormulario.querySelector('#data') as HTMLInputElement
 
-let tipoTransacao: string = inputTipoTransacao.value 
+let tipoTransacao: TipoTransacao = inputTipoTransacao.value as TipoTransacao
 let valor: number = inputValor.valueAsNumber
 let data: Date = new Date(inputData.value) 
 
 if(tipoTransacao == 'Depósito') {
     saldo += valor
-} else if(tipoTransacao == 'Transferência' || 'Pagamento de Boleto') {
+} else if(tipoTransacao == TipoTransacao.TRANSFERENCIA || TipoTransacao.PAGAMENTO_BOLETO) {
     saldo -= valor
 } else {
     alert('Tipo de transacao inivalida')
