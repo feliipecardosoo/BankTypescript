@@ -80,4 +80,4 @@ const Conta = {
     }
 }
 
-export default Conta
+export default Conta;
