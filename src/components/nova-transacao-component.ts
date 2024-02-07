@@ -1,3 +1,8 @@
+import { Transacao } from "../types/Transacao.js"
+import { TipoTransacao } from "../types/TipoTransacao.js"
+import { atualizarSaldo, getSaldo } from "./saldo-component.js"
+
+
 const elementoFormulario = document.querySelector('.block-nova-transacao form') as HTMLFormElement
 
 elementoFormulario.addEventListener('submit', function(e) {
@@ -14,6 +19,7 @@ const inputData = elementoFormulario.querySelector('#data') as HTMLInputElement
 let tipoTransacao: TipoTransacao = inputTipoTransacao.value as TipoTransacao
 let valor: number = inputValor.valueAsNumber
 let data: Date = new Date(inputData.value) 
+let saldo: number = getSaldo()
 
 if(tipoTransacao == 'Depósito') {
     saldo += valor
@@ -24,7 +30,7 @@ if(tipoTransacao == 'Depósito') {
     return
 }
 
-elementoSaldo.textContent = formatarMoeda(saldo)
+atualizarSaldo(saldo)
 
 const novaTransacao: Transacao = {
     tipoTransacao: tipoTransacao,
