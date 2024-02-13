@@ -1,7 +1,8 @@
 import { TipoTransacao } from "./TipoTransacao.js";
+import { Armazenador } from "./Armazenador.js";
 export class Conta {
     nome;
-    saldo = JSON.parse(localStorage.getItem("saldo")) || 0;
+    saldo = Armazenador.obter('saldo') || 0;
     transacoes = JSON.parse(localStorage.getItem("transacoes"), (key, value) => {
         if (key === "data") {
             return new Date(value);

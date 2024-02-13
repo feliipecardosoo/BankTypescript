@@ -1,10 +1,10 @@
 export class Armazenador {
     constructor() { }
-    salvar(chave, valor) {
+    static salvar(chave, valor) {
         const ValorString = JSON.stringify(valor);
         localStorage.setItem(chave, ValorString);
     }
-    obter(chave, reviver) {
+    static obter(chave, reviver) {
         const valor = localStorage.getItem(chave);
         if (valor === null) {
             return null;
