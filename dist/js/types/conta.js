@@ -10,6 +10,9 @@ export class Conta {
     constructor(nome) {
         this.nome = nome;
     }
+    getNome() {
+        return this.nome;
+    }
     getGruposTransacoes() {
         const gruposTransacoes = [];
         const listaTransacoes = structuredClone(this.transacoes);
@@ -68,4 +71,6 @@ export class Conta {
     }
 }
 const conta = new Conta('AIIIIIIIIIIII LIPEZINNNN GOSTOZINNNN');
+console.log(conta);
+console.log(conta.getNome());
 export default conta;

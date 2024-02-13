@@ -3,9 +3,9 @@ import { GrupoTransacao } from "./GrupoTransacao.js"
 import { TipoTransacao } from "./TipoTransacao.js"
 
 export class Conta {
-    nome: string
-    saldo: number = JSON.parse(localStorage.getItem("saldo")) || 0
-    transacoes: Transacao[] = JSON.parse(localStorage.getItem("transacoes"), (key: string, value: string) => {
+    protected nome: string
+    protected saldo: number = JSON.parse(localStorage.getItem("saldo")) || 0
+    private transacoes: Transacao[] = JSON.parse(localStorage.getItem("transacoes"), (key: string, value: string) => {
         if (key === "data") {
             return new Date(value);
         }
@@ -13,6 +13,10 @@ export class Conta {
 
     constructor(nome: string) {
         this.nome = nome
+    }
+    
+    public getNome(): string {
+        return this.nome
     }
 
     getGruposTransacoes(): GrupoTransacao[] {
@@ -84,5 +88,8 @@ export class Conta {
 }
 
 const conta = new Conta('AIIIIIIIIIIII LIPEZINNNN GOSTOZINNNN')
+
+console.log(conta)
+console.log(conta.getNome())
 
 export default conta
