@@ -88,9 +88,17 @@ export class Conta {
     }
 }
 
-const conta = new Conta('AIIIIIIIIIIII LIPEZINNNN GOSTOZINNNN')
+export class ContaPremium extends Conta{
+    registrarTransacao(transacao: Transacao): void {
+        if(transacao.tipoTransacao === TipoTransacao.DEPOSITO) {
+            console.log('Ganhou um bonus')
+            transacao.valor += 0.5
+        }
+        super.registrarTransacao(transacao)
+    }
+}
 
-console.log(conta)
-console.log(conta.getNome())
+const conta = new Conta('Felipe')
+const contaPremium = new ContaPremium('Felipe')
 
 export default conta

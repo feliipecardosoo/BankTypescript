@@ -71,7 +71,15 @@ export class Conta {
         Armazenador.salvar("transacoes", JSON.stringify(this.transacoes));
     }
 }
-const conta = new Conta('AIIIIIIIIIIII LIPEZINNNN GOSTOZINNNN');
-console.log(conta);
-console.log(conta.getNome());
+export class ContaPremium extends Conta {
+    registrarTransacao(transacao) {
+        if (transacao.tipoTransacao === TipoTransacao.DEPOSITO) {
+            console.log('Ganhou um bonus');
+            transacao.valor += 0.5;
+        }
+        super.registrarTransacao(transacao);
+    }
+}
+const conta = new Conta('Felipe');
+const contaPremium = new ContaPremium('Felipe');
 export default conta;
